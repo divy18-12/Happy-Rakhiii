@@ -17,6 +17,14 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    /* Mobile background fix */
+    @media (max-width: 768px) {
+      body {
+        background-size: contain;
+        background-color: black; /* Fill empty space */
+      }
+    }
+
     #tap {
       background: rgba(255,255,255,0.85);
       padding: 20px 30px;
