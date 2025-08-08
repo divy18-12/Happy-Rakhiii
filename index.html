@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Jyoti Dii — Happy Rakhi</title>
+  <style>
+    :root{--accent:#d6336c}
+    html,body{height:100%;margin:0;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#0b0810; color:#111}
+    body::before{content:'';position:fixed;inset:0;background-image:url('https://images.unsplash.com/photo-1506086679523-7d1a3a1b3f8b?auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;filter:brightness(0.6) contrast(1.02);z-index:0}
+    .cover{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.6));z-index:5;flex-direction:column;padding:2rem}
+    .cover .title{color:#fff;font-size:1.05rem;margin-bottom:0.6rem;opacity:.95}
+    .cover h2{color:#fff;margin:0;font-size:1.8rem;letter-spacing:0.2px}
+    .cover p{color:rgba(255,255,255,0.92);margin:0.6rem 0 1.2rem;text-align:center;max-width:520px}
+    .touch{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);box-shadow:0 8px 30px rgba(0,0,0,0.6);cursor:pointer;transition:transform .18s}
+    .touch:active{transform:scale(.98)}
+    .touch .emoji{font-size:2.6rem}
+    .small{font-size:0.9rem;color:rgba(255,255,255,0.86);margin-top:1rem}
+    .wrap{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .card{width:min(820px,95%);backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));border-radius:18px;padding:2.25rem;border:1px solid rgba(255,255,255,0.6);box-shadow:0 18px 60px rgba(5,5,10,0.6);text-align:left;opacity:0;transform:translateY(18px);transition:all .9s cubic-bezier(.2,.9,.3,1)}
+    .card.visible{opacity:1;transform:none}
+    h1{margin:0 0 0.4rem;font-size:2rem;color:var(--accent);text-align:center}
+    .msg{color:#222;font-size:1.03rem;line-height:1.65;max-width:760px;margin:0 auto;text-align:left}
+    .from{margin-top:1.25rem;text-align:right;font-weight:700;color:#444}
+    @media (max-width:620px){h1{font-size:1.5rem} .card{padding:1.2rem} .msg{font-size:0.98rem}}
+  </style>
+</head>
+<body>
+  <div class="cover" id="cover" role="dialog" aria-modal="true">
+    <div class="title">A Little Surprise</div>
+    <h2>Tap to open — For Jyoti Dii</h2>
+    <p>Happy Raksha Bandhan — a small message and a song, just for you.</p>
+    <div class="touch" id="touch" aria-label="Open gift" role="button" tabindex="0">
+      <div class="emoji">🎁</div>
+    </div>
+    <div class="small">Tap anywhere or press space to open</div>
+  </div>
+
+  <div class="wrap">
+    <main class="card" id="card" role="main" aria-live="polite">
+      <h1 style="text-align:center">Happy Raksha Bandhan, Jyoti Dii 🎉</h1>
+      <div class="msg" id="msg">
+        <p>Happy Raksha Bandhan to the sweetest, most supportive, kind, and beautiful sister.</p>
+
+        <p>You are not just my sister — you are a part of my soul, my safe place, and my greatest blessing.</p>
+
+        <p>I can’t even imagine my life without you, especially in this phase where your love and support mean the world to me.</p>
+
+        <p>You have stood by me in ways words can’t describe, helped me more than I could ever imagine , and filled my life with laughter, comfort, and strength.</p>
+
+        <p>Every call, every talks, every moment i spent this year with you was my greatest feeling ever till now, i was in the most happiest phase of mine those days.</p>
+
+        <p>Thankkkk youuu for being exactly who you are — pure, genuine, and irreplaceable.</p>
+
+        <p>I pray that your life is always filled with happiness, good health, and your every dream comes true.</p>
+
+        <p>You are my forever best friend, my protector, and my pride.</p>
+
+        <p>I’m blessed to have you in my lifeeee.</p>
+
+        <p>Once again, Happy Rakhi, Diiii 🥰💞❤️</p>
+
+      </div>
+      <div class="from">— Kriss</div>
+    </main>
+  </div>
+
+  <script>
+    const cover = document.getElementById('cover');
+    const touch = document.getElementById('touch');
+    const card = document.getElementById('card');
+
+    function reveal() {
+      cover.style.transition = 'opacity .6s ease';
+      cover.style.opacity = '0';
+      setTimeout(()=>{ cover.style.display='none'; },650);
+
+      card.classList.add('visible');
+
+      if (!document.getElementById('ytplayer')) {
+        const iframe = document.createElement('iframe');
+        iframe.id = 'ytplayer';
+        iframe.style.position = 'absolute';
+        iframe.style.left = '-9999px';
+        iframe.style.width = '1px';
+        iframe.style.height = '1px';
+        iframe.src = 'https://www.youtube.com/embed/4RBIwnM0ulk?rel=0&autoplay=1&loop=1&playlist=4RBIwnM0ulk&controls=0&modestbranding=1';
+        iframe.allow = 'autoplay; encrypted-media';
+        document.body.appendChild(iframe);
+      }
+    }
+
+    touch.addEventListener('click', reveal);
+    cover.addEventListener('click', reveal);
+    document.addEventListener('keydown', (e)=>{ if(e.code==='Space') reveal(); });
+    touch.focus();
+  </script>
+</body>
+</html>
